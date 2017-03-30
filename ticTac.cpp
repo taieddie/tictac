@@ -29,9 +29,9 @@ int myTracker[BOARD_SIZE];
 void printEachNum(int row,int col,bool pipe) {
     if (myTracker[row * ROW_LENGTH + (col)] == 0) 
     {
-        printf("  %d  %s", row * ROW_LENGTH + col + 1, (pipe == true)?"|":"");
+        printf("  %d  %s", row * ROW_LENGTH + col + 1, pipe?"|":"");
     } else {
-        printf("  %s  |", (myTracker[row * ROW_LENGTH + (col)] == 1) ? "X" : "O");
+        printf("  %s  %s", (myTracker[row * ROW_LENGTH + (col)] == 1) ? "X" : "O", pipe?"|":"");
     }
 }
 
@@ -61,7 +61,7 @@ void printTicTacBoard()
         
             if (row != (ROW_LENGTH-1))
             {
-            printf ("\n________________\n", eachNum);
+            printf ("\n________________\n");
             }
             else
             {
@@ -83,7 +83,6 @@ bool hasWon()
         caseTwo ||
         caseThree )
     {
-        printf ("YES\n");
         return true;
     }
     
